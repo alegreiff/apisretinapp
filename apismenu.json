@@ -1,0 +1,106 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "APP Retina Latina",
+    "version": "1.0",
+    "description": "APPS para el APP",
+    "contact": {
+      "name": "Jaime de Greiff"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://retinastag.wpengine.com",
+      "description": "Staging"
+    }
+  ],
+  "paths": {
+    "/wp-json/ra/v1/menu": {
+      "get": {
+        "summary": "Obtiene Menú",
+        "tags": [
+          "menu",
+          "app",
+          "config"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "integer"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": [
+                        "link",
+                        "label"
+                      ]
+                    },
+                    "params": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "endpoint": {
+                          "type": "string"
+                        },
+                        "link": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "contenido": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "string"
+                          },
+                          "params": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "endopint": {
+                                "type": "string"
+                              },
+                              "link": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "title",
+                    "id",
+                    "type"
+                  ]
+                },
+                "examples": {}
+              }
+            }
+          }
+        },
+        "operationId": "get-wp-json-ra-v1-menu",
+        "description": "Menú para el APP"
+      }
+    }
+  }
+}
